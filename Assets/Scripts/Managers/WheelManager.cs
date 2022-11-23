@@ -1,22 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class WheelManager : MonoBehaviour
 {
     public GameObject outline;
+    private Animator _outlineAnimator;
     public float spinningSpeed;
-    private bool _spinning = false;
-    private bool _spinned = false;
-    private bool _stopped = false;
-    private float _time = 0;
+    [SerializeField] private bool _spinning = false;
+    [SerializeField] private bool _spinned = false;
+    [SerializeField] private bool _stopped = false;
+    [SerializeField] private float _time = 0;
     void Start()
     {
-        transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z + 1);
+        _outlineAnimator = outline.GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -25,20 +21,20 @@ public class WheelManager : MonoBehaviour
         {
             _time += Time.deltaTime;
 
-            if (_time > 15)
+            if (_time > 5)
             {
                 _spinned = true;
                 _stopped = spinningSpeed == 0;
-                spinningSpeed = spinningSpeed < 0 ? spinningSpeed + (_time / 10) : 0;          
+                spinningSpeed = spinningSpeed < 0 ? spinningSpeed + (_time / 5) : 0;
             }
             if (_stopped && _spinned)
             {
-                transform.localEulerAngles = transform.localEulerAngles.z % 22.5f < 0.9f ? 
-                    new Vector3(0, 0, transform.localEulerAngles.z + 1) : 
+                _outlineAnimator.Play("Outline Hide");
+                transform.localEulerAngles = Mathf.Abs(transform.localEulerAngles.z) % 45f < 1 ?
+                    new Vector3(0, 0, transform.localEulerAngles.z + 2) :
                     new Vector3(0, 0, transform.localEulerAngles.z);
             }
             transform.eulerAngles += new Vector3(0, 0, spinningSpeed * Time.deltaTime);
-            outline.transform.eulerAngles += new Vector3(0, 0, -(spinningSpeed * Time.deltaTime));
         }
     }
 
@@ -46,7 +42,8 @@ public class WheelManager : MonoBehaviour
     {
         if (!_spinning)
         {
-            spinningSpeed = Random.Range(-1000, -1500);
+            _outlineAnimator.Play("Outline");
+            spinningSpeed = Random.Range(-500, -1200);
             _spinning = true;
         }
     }
