@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ReklamScript : MonoBehaviour
 {
@@ -40,6 +41,11 @@ public class ReklamScript : MonoBehaviour
 
     private void Awake()
     {
+        bannerKimligi = Ads.BannerId;
+        interstitialKimligi = Ads.InterstitialId;
+        rewardedVideoKimligi = Ads.RewardedId;
+        testDeviceID = Ads.TestDeviceId;
+
         if (instance == null)
         {
             instance = this;
@@ -104,13 +110,13 @@ public class ReklamScript : MonoBehaviour
         if (testModu && (string.IsNullOrEmpty(testDeviceID) || string.IsNullOrEmpty(bannerKimligi)))
         {
 #if UNITY_ANDROID
-            bannerReklam = new BannerView("ca-app-pub-3940256099942544/6300978111", AdSize.SmartBanner, bannerPozisyonu);
+            bannerReklam = new BannerView("ca-app-pub-3940256099942544/6300978111", AdSize.Banner, bannerPozisyonu);
 #else
-            bannerReklam = new BannerView( "ca-app-pub-3940256099942544/2934735716", AdSize.SmartBanner, bannerPozisyonu );
+            bannerReklam = new BannerView( "ca-app-pub-3940256099942544/2934735716", AdSize.Banner, bannerPozisyonu );
 #endif
         }
         else
-            bannerReklam = new BannerView(bannerKimligi, AdSize.SmartBanner, bannerPozisyonu);
+            bannerReklam = new BannerView(bannerKimligi, AdSize.Banner, bannerPozisyonu);
 
         bannerReklam.OnAdFailedToLoad += BannerYuklenemedi;
         bannerReklam.LoadAd(ReklamIstegiOlustur());
@@ -229,23 +235,23 @@ public class ReklamScript : MonoBehaviour
 
     //private void OnGUI()
     //{
-    //  Color c = GUI.color;
+    //    Color c = GUI.color;
 
-    //  if( GUI.Button( new Rect( Screen.width / 2 - 150, 0, 300, 120 ), "Banner Goster" ) )
-    //      ReklamScript.BannerGoster();
+    //    if (GUI.Button(new Rect(Screen.width / 2 - 150, 0, 300, 120), "Banner Goster"))
+    //        ReklamScript.BannerGoster();
 
-    //  if( GUI.Button( new Rect( Screen.width / 2 - 150, 120, 300, 120 ), "Banner Gizle" ) )
-    //      ReklamScript.BannerGizle();
+    //    if (GUI.Button(new Rect(Screen.width / 2 - 150, 120, 300, 120), "Banner Gizle"))
+    //        ReklamScript.BannerGizle();
 
-    //  GUI.color = InterstitialHazirMi() ? Color.green : Color.red;
-    //  if( GUI.Button( new Rect( Screen.width / 2 - 150, 240, 300, 120 ), "Interstitial Goster" ) )
-    //      ReklamScript.InsterstitialGoster();
+    //    GUI.color = InterstitialHazirMi() ? Color.green : Color.red;
+    //    if (GUI.Button(new Rect(Screen.width / 2 - 150, 240, 300, 120), "Interstitial Goster"))
+    //        ReklamScript.InsterstitialGoster();
 
-    //  GUI.color = RewardedReklamHazirMi() ? Color.green : Color.red;
-    //  if( GUI.Button( new Rect( Screen.width / 2 - 150, 360, 300, 120 ), "Rewarded Goster" ) )
-    //      ReklamScript.RewardedReklamGoster( null );
+    //    GUI.color = RewardedReklamHazirMi() ? Color.green : Color.red;
+    //    if (GUI.Button(new Rect(Screen.width / 2 - 150, 360, 300, 120), "Rewarded Goster"))
+    //        ReklamScript.RewardedReklamGoster(null);
 
-    //  GUI.color = c;
+    //    GUI.color = c;
     //}
 
     public static void BannerReklamAl()
