@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,10 +18,20 @@ public class CheckConnection : MonoBehaviour
             Destroy(this);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) CaptureScreenshot();
+    }
+
     public static void Internet()
     {
         if ((Application.internetReachability == NetworkReachability.NotReachable) && SceneManager.GetActiveScene().name != "Check Connection")
             SceneManager.LoadScene("Check Connection");
+    }
+
+    void CaptureScreenshot()
+    {
+        ScreenCapture.CaptureScreenshot("./Screenshoots/" + Guid.NewGuid().ToString() + ".png");
     }
 
 }
