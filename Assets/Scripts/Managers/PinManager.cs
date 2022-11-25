@@ -4,18 +4,21 @@ public class PinManager : MonoBehaviour
 {
 
     public GameObject wheel;
-    void Start()
+    private Animator _animator;
+    public bool spinning;
+    public bool stopped;
+    public string reward;
+
+    void FixedUpdate()
     {
-
-    }
-
-    void Update()
-    {
-
+        spinning = wheel.GetComponent<WheelManager>().spinning;
+        stopped = wheel.GetComponent<WheelManager>().stopped;
+        _animator = GetComponent<Animator>();
+        PlayerPrefs.SetString("Reward", reward);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
+        if (collision.tag == "Reward") reward = collision.name;
     }
 }

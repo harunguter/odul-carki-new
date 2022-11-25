@@ -152,6 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59cbc00d18084e042b4786733faa849d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  informationText: {fileID: 1926419625}
+  playArea: {fileID: 1124343099}
+  wheel: {fileID: 1579571415}
 --- !u!4 &193189831
 Transform:
   m_ObjectHideFlags: 0
@@ -263,7 +266,7 @@ GameObject:
   - component: {fileID: 220036008}
   m_Layer: 0
   m_Name: Internet
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,7 +324,7 @@ GameObject:
   - component: {fileID: 324528278}
   m_Layer: 0
   m_Name: Surpriz
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -497,7 +500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480726911}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.69, z: 9}
+  m_LocalPosition: {x: 0, y: 1.69, z: 8}
   m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -568,7 +571,7 @@ GameObject:
   - component: {fileID: 555885664}
   m_Layer: 0
   m_Name: Surpriz
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -626,7 +629,7 @@ GameObject:
   - component: {fileID: 612211355}
   m_Layer: 0
   m_Name: Bos
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -684,6 +687,7 @@ GameObject:
   - component: {fileID: 720105583}
   - component: {fileID: 720105584}
   - component: {fileID: 720105585}
+  - component: {fileID: 720105586}
   m_Layer: 0
   m_Name: Pin
   m_TagString: Untagged
@@ -796,7 +800,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b9b89d60a8ea34598ee8c2ce60834b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheel: {fileID: 0}
+  wheel: {fileID: 1579571415}
+  spinning: 0
+  stopped: 0
+  reward: 
+--- !u!95 &720105586
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720105581}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f609bd2b7769344195c10713f1b73fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &810759233
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,7 +939,7 @@ GameObject:
   - component: {fileID: 1089527022}
   m_Layer: 0
   m_Name: Bos
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -970,7 +997,7 @@ GameObject:
   - component: {fileID: 1118587597}
   m_Layer: 0
   m_Name: Dakika
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1047,6 +1074,7 @@ Transform:
   - {fileID: 810759234}
   - {fileID: 1579571416}
   - {fileID: 358187897}
+  - {fileID: 1364460974}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1247,7 +1275,7 @@ GameObject:
   - component: {fileID: 1245157643}
   m_Layer: 0
   m_Name: Surpriz
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1293,6 +1321,111 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.47, y: 10.2}
   m_EdgeRadius: 0
+--- !u!1 &1364460972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1364460974}
+  - component: {fileID: 1364460973}
+  - component: {fileID: 1364460975}
+  m_Layer: 0
+  m_Name: Neons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1364460973
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364460972}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 3493e4651be9b0b4999336af640fa978, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 30.119999, y: 29.752323}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1364460974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364460972}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 9}
+  m_LocalScale: {x: 0.135, y: 0.135, z: 0.135}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1124343100}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1364460975
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364460972}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f6a78dc24c7c282418bdba5cae557569, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1389624943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,7 +1438,7 @@ GameObject:
   - component: {fileID: 1389624945}
   m_Layer: 0
   m_Name: Bos
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1362,8 +1495,8 @@ GameObject:
   - component: {fileID: 1579571416}
   - component: {fileID: 1579571417}
   - component: {fileID: 1579571420}
-  - component: {fileID: 1579571419}
   - component: {fileID: 1579571421}
+  - component: {fileID: 1579571419}
   m_Layer: 0
   m_Name: Wheel
   m_TagString: Untagged
@@ -1379,7 +1512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579571415}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 8}
+  m_LocalPosition: {x: 0, y: 0, z: 7}
   m_LocalScale: {x: 0.11999999, y: 0.11999999, z: 0.11999999}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1460,11 +1593,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 358187896}
+  pin: {fileID: 720105581}
   spinningSpeed: 0
-  _spinning: 0
-  _spinned: 0
-  _stopped: 0
-  _time: 0
+  spinning: 0
+  spinned: 0
+  stopped: 0
 --- !u!58 &1579571420
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1560,7 +1693,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "S\xFCrpriz hediyeler i\xE7in\n\xE7ark\u0131 \xE7evirin!"
+  m_text: "S\xFCrpriz hediyeler i\xE7in\n\xE7ark\u0131 \xE7evirin"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 58d5252cd6c657449afbf95afce3a67c, type: 2}
   m_sharedMaterial: {fileID: -1266597054539370716, guid: 58d5252cd6c657449afbf95afce3a67c, type: 2}
@@ -1593,7 +1726,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1715,7 +1848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949322519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2, y: 0, z: 10}
+  m_LocalPosition: {x: -2.2, y: 0, z: 20}
   m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1838,7 +1971,7 @@ GameObject:
   - component: {fileID: 2089732205}
   m_Layer: 0
   m_Name: Bos
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

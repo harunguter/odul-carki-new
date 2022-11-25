@@ -1,20 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SplashSceneManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Slider slider;
+    public TextMeshProUGUI loading;
+    public int sliderMaxValue;
+    private float _sliderValue;
+    public int progress;
+
     void Start()
     {
-        Invoke("ChangeScene", 2);
+        slider.maxValue = sliderMaxValue;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        _sliderValue = _sliderValue < sliderMaxValue ? _sliderValue += Time.deltaTime : sliderMaxValue;
+        _sliderValue = _sliderValue < sliderMaxValue ? _sliderValue += Time.deltaTime : sliderMaxValue;
+        slider.value = slider.value < sliderMaxValue ? _sliderValue : sliderMaxValue;
+        progress = (int)((_sliderValue / sliderMaxValue) * 100);
+
+        loading.text = (_sliderValue < (sliderMaxValue / 2)) ? "Baðlantý kuruluyor" : "Yükleniyor";
+
+        if (_sliderValue >= sliderMaxValue) SceneManager.LoadScene("Main");
+
+        CheckConnection.Internet();
     }
 
     void ChangeScene()
