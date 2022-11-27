@@ -29,6 +29,7 @@ public class MainSceneManager : MonoBehaviour
                 informationText.GetComponent<TextMeshProUGUI>().text = "Reklam yükleniyor<br>Lütfen bekleyin...";
                 informationText.GetComponent<TextMeshProUGUI>().rectTransform.localPosition = Vector3.zero;
                 Invoke("ShowInterstitialAd", 3f);
+                Invoke("OpenRewardScene", 3.1f);
             } else
             {
                 Invoke("OpenRewardScene", 1f);
