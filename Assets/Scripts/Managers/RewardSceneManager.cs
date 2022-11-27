@@ -21,7 +21,9 @@ public class RewardSceneManager : MonoBehaviour
         Debug.Log(PlayerPrefs.GetString("Reward"));
         _giftOutlineAnimationLength = giftOutline
             .GetComponent<Animator>()
-            .runtimeAnimatorController.animationClips[0].length;
+            .runtimeAnimatorController
+            .animationClips[0]
+            .length;
 
         switch (PlayerPrefs.GetString("Reward"))
         {
@@ -93,9 +95,8 @@ public class RewardSceneManager : MonoBehaviour
     public void ShareApp()
     {
         new NativeShare()
-            .SetTitle("Test title")
-            .SetText("Test text")
-            .SetUrl("https://google.com")
+            .SetText("Uygulamayý indir, eðlenceye ortak ol!\n")
+            .SetUrl("https://play.google.com/store/apps/details?id=mx.reality.hediyecarkinewversion")
             .Share();
     }
 
