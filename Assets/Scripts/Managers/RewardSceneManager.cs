@@ -1,4 +1,5 @@
 using GoogleMobileAds.Api;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -89,6 +90,13 @@ public class RewardSceneManager : MonoBehaviour
 
     public void ExitApp() => Application.Quit();
 
-    public void ShareApp() => SceneManager.LoadScene("Splash");
+    public void ShareApp()
+    {
+        new NativeShare()
+            .SetTitle("Test title")
+            .SetText("Test text")
+            .SetUrl("https://google.com")
+            .Share();
+    }
 
 }
